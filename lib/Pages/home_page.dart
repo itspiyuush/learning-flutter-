@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutter2/widgets/drawer.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -10,14 +9,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +24,8 @@ class _HomepageState extends State<Homepage> {
           width: 400,
         )),
       ),
-      drawer: const Drawer(
-        backgroundColor: Color.fromARGB(255, 36, 139, 230),
-        child: Text(style: TextStyle(fontSize: 25), "Login"),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      drawer:
+          const MyDrawer(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
