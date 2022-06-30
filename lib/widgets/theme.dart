@@ -6,7 +6,10 @@ class MyTheme {
         fontFamily: GoogleFonts.roboto().fontFamily,
         primarySwatch: Colors.deepOrange,
         appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.orange, centerTitle: true),
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            elevation: 0.0),
       );
 
   static ThemeData darkTheme(BuildContext context) =>
