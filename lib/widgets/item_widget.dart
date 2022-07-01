@@ -10,20 +10,24 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.network(item.image),
-      title: Text(
-        item.name,
-        style: const TextStyle(color: Colors.white),
-      ),
-      subtitle: Text(
-        item.desc,
-        style: const TextStyle(color: Colors.white),
-      ),
-      trailing: Text(
-        "\$${item.price}",
-        style: const TextStyle(
-            fontWeight: FontWeight.bold, color: Colors.white, fontSize: 17.0),
+    return Card(
+      child: ListTile(
+        hoverColor: Colors.lime,
+        onTap: () {},
+        leading: Image.network(item.image),
+        title: Text(
+          item.name,
+          style: const TextStyle(color: Colors.black),
+        ),
+        subtitle: Text(
+          item.desc,
+          style: const TextStyle(color: Colors.black),
+        ),
+        trailing: Text(
+          "\$${item.price}",
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.green, fontSize: 17.0),
+        ),
       ),
     );
   }
