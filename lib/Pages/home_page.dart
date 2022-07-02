@@ -41,17 +41,41 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         title: const Text("Application"),
       ),
-      body: ListView.builder(
-          itemCount: CatalogModel.Items.length,
-          itemBuilder: (context, index) {
-            return Container(
-              padding: EdgeInsets.all(5.0),
-              margin: EdgeInsets.all(7.0),
-              child: ItemWidget(
-                item: CatalogModel.Items[index],
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+        itemCount: CatalogModel.Items.length,
+        itemBuilder: (context, index) {
+          final item = CatalogModel.Items[index];
+
+          return Card(
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0)),
+            child: GridTile(
+              header: Container(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(item.name, style: TextStyle(color: Colors.white)),
+                decoration: BoxDecoration(
+                  color: Colors.lightGreen,
+                ),
               ),
-            );
-          }),
+              footer: Container(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  item.price.toString(),
+                  style: TextStyle(color: Colors.white),
+                ),
+                decoration: BoxDecoration(color: Colors.lightGreen),
+              ),
+              child: Image.network(item.image),
+            ),
+          );
+        },
+      ),
       drawer:
           const MyDrawer(), // This trailing comma makes auto-formatting nicer for build methods.
     );
